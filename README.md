@@ -2,12 +2,10 @@
 
 Version 1.1
 
-Doing:
+File exploler!
 
-Blu_Terminal was redesigned to run python scripts download npm and sudo packges 
+Python and Php Runner!
 
-Also a code editor;
+Code Editor!
 
-Thinking Of Doing: 
-
-Making a apache server where you can run php files
+Much More!!
