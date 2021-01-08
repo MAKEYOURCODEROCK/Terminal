@@ -85,7 +85,10 @@ def arguments(user_input):
         print("Here You Are Welcome To Download Almost Anything")
         inputs(version)
 
-    if user_input == "Quit" or user_input == "quit" or user_input == "QUIT" or user_input == "q" or user_input == "Q":
+    if user_input == "Quit" or user_input == "quit" or user_input == "QUIT" or user_input == "q" or user_input == "Q" or user_input == "exit" or user_input == "EXIT":
+        data = {}
+        data['path'] = "./"
+        writeToJSONFile('','var/path',data)
         print("Bye!!")
         now = datetime.datetime.now()
         print("Blu Closed On:")
@@ -98,11 +101,44 @@ def arguments(user_input):
         inputs(version)
 
 
-    if user_input[0:3] == "cd " or user_input[0:3] == "CD " or user_input[0:3] == "Cd " or user_input[0:3] == "cD ":
-        location = {}
-        location['path'] = user_input[3:]
-        writeToJSONFile('','var/path', location)
+    if user_input == "sudo service apache2 start" or user_input == "sudo apache start" or user_input == "start webserver":
+        print("Starting Web Server")
+        os.system('python3 more/server/server.py')
+        
+
+
+
+    if user_input[0:3] == "rm " or user_input[0:3] == "RM " or user_input[0:3] == "Rm " or user_input[0:3] == "rM ":
+        with open('var/path.json') as y:
+            location = json.load(y)
+
+        path = user_input[3:]
+        os.remove(location['path'] + '/' + path) 
         inputs(version)
+
+        
+
+    if user_input[0:3] == "cd " or user_input[0:3] == "CD " or user_input[0:3] == "Cd " or user_input[0:3] == "cD ":
+        with open('var/path.json') as l:
+            low = json.load(l)
+        pathcheck = os.path.exists(low['path'] + user_input[3:] + '/')
+        if pathcheck == True:
+            with open('var/path.json') as v:
+                low = json.load(v)
+            location = {}
+            location['path'] = low['path'] + user_input[3:] + '/'
+            writeToJSONFile('','var/path', location)
+            inputs(version)
+        elif user_input != "cd ..":
+            print("No Such File Or Directory")
+            inputs(version)
+        else:
+            with open('var/path.json') as v:
+                low = json.load(v)
+            location = {}
+            location['path'] = low['path'] + user_input[3:] + '/'
+            writeToJSONFile('','var/path', location)
+            inputs(version)
 
     if user_input[0:3] == "ls" or user_input[0:3] == "LS" or user_input[0:3] == "Ls" or user_input[0:3] == "lS":
         with open('var/path.json') as z:
