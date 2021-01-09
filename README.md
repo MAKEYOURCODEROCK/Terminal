@@ -6,7 +6,7 @@ Normal terminal file exlploler
 
 A complete webServer with php, apache on http://localhost:1515
 
-The webserver only works in the var folder
+The webserver works in all the folder
 
 Working On:
   
