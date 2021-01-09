@@ -8,8 +8,6 @@ A complete webServer with php, apache on http://localhost:1515
 
 The webserver works in all the folder
 
-Working On:
-  
-  vim code editor
+Code Editor
   
   
