@@ -7,6 +7,7 @@
 <body>
     <?php
         echo 'hi';
+        echo 'webserver is working';
     ?>
 </body>
 </html>
