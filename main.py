@@ -5,7 +5,8 @@ import pickle
 import code
 import os
 import getpass
-
+import subprocess
+import sys
 
 from colorama import init
 init()
@@ -103,8 +104,11 @@ def arguments(user_input):
 
     if user_input == "sudo service apache2 start" or user_input == "sudo apache start" or user_input == "start webserver":
         print("Starting Web Server")
-        os.system('python3 more/server/server.py')
-        
+        p = subprocess.Popen([sys.executable, 'more/server/server.py'], 
+                                    stdout=subprocess.PIPE, 
+                                    stderr=subprocess.STDOUT)
+        print("WebServer Is Online On localhost:1515")
+        inputs(version)
 
 
 
