@@ -104,7 +104,7 @@ def arguments(user_input):
 
     if user_input == "sudo service apache2 start" or user_input == "sudo apache start" or user_input == "start webserver":
         print("Starting Web Server")
-        p = subprocess.Popen([sys.executable, 'var/www/.server.py'], 
+        p = subprocess.Popen([sys.executable, 'more/server/server.py'], 
                                     stdout=subprocess.PIPE, 
                                     stderr=subprocess.STDOUT)
         print("WebServer Is Online On localhost:1515")
