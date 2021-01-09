@@ -2,10 +2,12 @@
 
 Version 1.1
 
-File exploler!
+Normal terminal file exlploler
 
-Python and Php Runner!
+A complete webServer with php, apache on http://localhost:1515
 
-Code Editor!
-
-Much More!!
+Working On:
+  
+  vim code editor
+  
+  
