@@ -104,12 +104,20 @@ def arguments(user_input):
 
     if user_input == "sudo service apache2 start" or user_input == "sudo apache start" or user_input == "start webserver":
         print("Starting Web Server")
-        p = subprocess.Popen([sys.executable, 'var/www/.server.py'], 
+        p = subprocess.Popen([sys.executable, 'more/server/launch.py'], 
                                     stdout=subprocess.PIPE, 
                                     stderr=subprocess.STDOUT)
-        print("WebServer Is Online On localhost:1515")
+        print("WebServer Is Online On localhost and localhost:1515")
+        print("Launching PHP")
+        print("Launchihng MYSQL")
+        print("Launching PHPMYADMIN")
         inputs(version)
 
+
+    if user_input == "kill servers" or user_input == "killall -9 php":
+        os.system('killall -9 php')
+        os.system('sudo apachectl stop')
+        inputs(version)
 
 
     if user_input[0:3] == "rm " or user_input[0:3] == "RM " or user_input[0:3] == "Rm " or user_input[0:3] == "rM ":
