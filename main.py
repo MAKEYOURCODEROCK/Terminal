@@ -1,12 +1,10 @@
 #!/usr/bin/env
-import requests
+
 import json
 import pickle
 import code
 import os
 import getpass
-import subprocess
-import sys
 
 from colorama import init
 init()
@@ -14,29 +12,11 @@ from colorama import Fore, Back, Style
 
 
 import datetime
-version = "1.1"
+version = "1.0"
 
 #space
 print()
 #space
-
-
-def download_file(url, filename=''):
-    try:
-        if filename:
-            pass            
-        else:
-            filename = req.url[downloadUrl.rfind('/')+1:]
- 
-        with requests.get(url) as req:
-            with open(filename, 'wb') as f:
-                for chunk in req.iter_content(chunk_size=8192):
-                    if chunk:
-                        f.write(chunk)
-            return filename
-    except Exception as e:
-        print(e)
-        return None
 
 
 
@@ -75,8 +55,6 @@ def inputs(version):
 
 
 def arguments(user_input):
-    location = './'
-
     if user_input == "":
         inputs(version)
     
@@ -86,10 +64,7 @@ def arguments(user_input):
         print("Here You Are Welcome To Download Almost Anything")
         inputs(version)
 
-    if user_input == "Quit" or user_input == "quit" or user_input == "QUIT" or user_input == "q" or user_input == "Q" or user_input == "exit" or user_input == "EXIT":
-        data = {}
-        data['path'] = "./"
-        writeToJSONFile('','var/path',data)
+    if user_input == "Quit" or user_input == "quit" or user_input == "QUIT" or user_input == "q" or user_input == "Q":
         print("Bye!!")
         now = datetime.datetime.now()
         print("Blu Closed On:")
@@ -99,135 +74,6 @@ def arguments(user_input):
 
     if user_input == "keys":
         print("Keys-Are:")
-        inputs(version)
-
-
-    if user_input == "sudo service apache2 start" or user_input == "sudo apache start" or user_input == "start webserver":
-        print("Starting Web Server")
-        p = subprocess.Popen([sys.executable, 'more/server/launch.py'], 
-                                    stdout=subprocess.PIPE, 
-                                    stderr=subprocess.STDOUT)
-        print("WebServer Is Online On localhost and localhost:1515")
-        print("Launching PHP")
-        print("Launchihng MYSQL")
-        print("Launching PHPMYADMIN")
-        inputs(version)
-
-
-    if user_input == "kill servers" or user_input == "killall -9 php":
-        os.system('killall -9 php')
-        inputs(version)
-
-
-    if user_input[0:4] == "sudo":
-        os.system(user_input)
-
-    if user_input[0:3] == "npm":
-        os.system(user_input)
-
-    if user_input[0:4] == "pip3" or user_input[0:3] == "pip":
-        os.system(user_input)
-
-    if user_input == "python3" or user_input[0:3] == "python":
-        os.system(user_input)
-        inputs(version)
-
-    if user_input[0:7] == "python3":
-        os.system(user_input)
-        inputs(version)
-
-
-    if user_input[0:3] == "rm " or user_input[0:3] == "RM " or user_input[0:3] == "Rm " or user_input[0:3] == "rM ":
-        with open('var/path.json') as y:
-            location = json.load(y)
-
-        path = user_input[3:]
-        os.remove(location['path'] + '/' + path) 
-        inputs(version)
-
-    if user_input == "install brew":
-        os.system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
-        os.system('export PATH=/opt/homebrew/bin:$PATH')
-        print("Brew Installed")
-        inputs(version)
-
-    if user_input[0:4] == "brew":
-        os.system('export PATH=/opt/homebrew/bin:$PATH')
-        os.system(user_input)
-        inputs(version)
-
-
-    if user_input == "bash":
-        os.system('bash')
-        inputs(version)
-
-    if user_input == "zsh":
-        os.system('zsh')
-        inputs(version)
-
-    if user_input == "sh":
-        os.system('sh')
-        inputs(version)
-
-
-    if user_input == "bash":
-        os.system('bash')
-        inputs(version)
-
-    if user_input == "csh":
-        os.system('csh')
-        inputs(version)
-
-    if user_input == "ksh":
-        os.system('ksh')
-        inputs(version)
-
-    if user_input == "dash":
-        os.system('dash')
-        inputs(version)
-
-    if user_input[0:3] == "cd " or user_input[0:3] == "CD " or user_input[0:3] == "Cd " or user_input[0:3] == "cD ":
-        with open('var/path.json') as l:
-            low = json.load(l)
-        pathcheck = os.path.exists(low['path'] + user_input[3:] + '/')
-        if pathcheck == True:
-            with open('var/path.json') as v:
-                low = json.load(v)
-            location = {}
-            location['path'] = low['path'] + user_input[3:] + '/'
-            writeToJSONFile('','var/path', location)
-            inputs(version)
-        elif user_input != "cd ..":
-            print("No Such File Or Directory")
-            inputs(version)
-        else:
-            with open('var/path.json') as v:
-                low = json.load(v)
-            location = {}
-            location['path'] = low['path'] + user_input[3:] + '/'
-            writeToJSONFile('','var/path', location)
-            inputs(version)
-
-    if user_input[0:3] == "ls" or user_input[0:3] == "LS" or user_input[0:3] == "Ls" or user_input[0:3] == "lS":
-        with open('var/path.json') as z:
-            location = json.load(z)
-
-        ls = os.listdir(location['path'])
-        x = len(ls)
-        y = 0
-
-        while y != x:
-            print(ls[y])
-            y += 1    
-
-        inputs(version)
-
-    
-
-    
-
-    if user_input == "sudo install blu.js" or user_input == "npm install blu.js" or user_input == "sudo install blu_js" or user_input == "npm install blu_js":
-        download_file('http://bluhorse.ca/cdn/blu.js.zip', 'more/library/blu.js.zip')
         inputs(version)
 
     if user_input == "playarea" or user_input == "-pa-" or user_input == "PlayArea":

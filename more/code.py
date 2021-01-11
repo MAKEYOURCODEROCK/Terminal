@@ -39,13 +39,13 @@ class Menubar:
         menubar.add_cascade(label="About", menu=about_dropdown)
 
     def show_about_message(self):
-        box_title = "Blu Text Version 0.0.1"
-        box_message = "Version 0.0.1"
+        box_title = "About PyText"
+        box_message = "A simple Python Text Editor"
         messagebox.showinfo(box_title, box_message)
 
     def show_release_notes(self):
         box_title = "Release Notes"
-        box_message = "Version 0.0.1 - arial"
+        box_message = "Version 0.1 - Gutenberg"
         messagebox.showinfo(box_title, box_message)
 
 
@@ -56,7 +56,7 @@ class Statusbar:
         font_specs = ("ubuntu", 12)
         
         self.status = tk.StringVar()
-        self.status.set("Blu TEXT")
+        self.status.set("PyText - 0.1 Gutenberg")
 
         label = tk.Label(parent.textarea, textvariable=self.status, fg="black",
                          bg="lightgrey", anchor='sw', font=font_specs)
@@ -66,18 +66,20 @@ class Statusbar:
         if isinstance(args[0], bool):
             self.status.set("Your File Has Been Saved!")
         else:
-            self.status.set("Blu text")
+            self.status.set("PyText - 0.1 Gutenberg")
 
 
 class PyText:
 
     def __init__(self, master):
-        master.title("Untitled")
+        master.title("Untitled Editor")
         master.geometry("1200x700")
+
         font_specs = ("ubuntu", 18)
 
         self.master = master
         self.filename = None
+
         self.textarea = tk.Text(master, font=font_specs)
         self.scroll = tk.Scrollbar(master, command=self.textarea.yview)
         self.textarea.configure(yscrollcommand=self.scroll.set)
@@ -86,13 +88,14 @@ class PyText:
 
         self.menubar = Menubar(self)
         self.statusbar = Statusbar(self)
+
         self.bind_shortcuts()
 
     def set_window_title(self, name=None):
         if name:
-            self.master.title(name)
+            self.master.title(name + " - PyText")
         else:
-            self.master.title("Untitled")
+            self.master.title("Untitled - PyText")
 
     def new_file(self, *args):
         self.textarea.delete(1.0, tk.END)
