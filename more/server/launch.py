@@ -1,7 +1,7 @@
 import os
 
 
-os.system('sudo apachectl start')
+#os.system('sudo apachectl start')
 
 check = os.path.exists("/opt/homebrew")
 
