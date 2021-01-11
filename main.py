@@ -102,22 +102,12 @@ def arguments(user_input):
         inputs(version)
 
 
-    if user_input[0:4] == "sudo":
-        os.system(user_input)
-
-    if user_input[0:3] == "npm":
-        os.system(user_input)
-
-    if user_input[0:4] == "pip3" or user_input[0:3] == "pip":
-        os.system(user_input)
-
-
     if user_input == "sudo service apache2 start" or user_input == "sudo apache start" or user_input == "start webserver":
         print("Starting Web Server")
-        p = subprocess.Popen([sys.executable, 'var/www/.server.py'], 
+        p = subprocess.Popen([sys.executable, 'more/server/launch.py'], 
                                     stdout=subprocess.PIPE, 
                                     stderr=subprocess.STDOUT)
-        print("WebServer Is Online On localhost:1515")
+        print("WebServer Is Online On localhost and localhost:1515")
         print("Launching PHP")
         print("Launchihng MYSQL")
         print("Launching PHPMYADMIN")
@@ -129,6 +119,24 @@ def arguments(user_input):
         inputs(version)
 
 
+    if user_input[0:4] == "sudo":
+        os.system(user_input)
+
+    if user_input[0:3] == "npm":
+        os.system(user_input)
+
+    if user_input[0:4] == "pip3" or user_input[0:3] == "pip":
+        os.system(user_input)
+
+    if user_input == "python3" or user_input[0:3] == "python":
+        os.system(user_input)
+        inputs(version)
+
+    if user_input[0:7] == "python3":
+        os.system(user_input)
+        inputs(version)
+
+
     if user_input[0:3] == "rm " or user_input[0:3] == "RM " or user_input[0:3] == "Rm " or user_input[0:3] == "rM ":
         with open('var/path.json') as y:
             location = json.load(y)
@@ -137,7 +145,46 @@ def arguments(user_input):
         os.remove(location['path'] + '/' + path) 
         inputs(version)
 
-        
+    if user_input == "install brew":
+        os.system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
+        os.system('export PATH=/opt/homebrew/bin:$PATH')
+        print("Brew Installed")
+        inputs(version)
+
+    if user_input[0:4] == "brew":
+        os.system('export PATH=/opt/homebrew/bin:$PATH')
+        os.system(user_input)
+        inputs(version)
+
+
+    if user_input == "bash":
+        os.system('bash')
+        inputs(version)
+
+    if user_input == "zsh":
+        os.system('zsh')
+        inputs(version)
+
+    if user_input == "sh":
+        os.system('sh')
+        inputs(version)
+
+
+    if user_input == "bash":
+        os.system('bash')
+        inputs(version)
+
+    if user_input == "csh":
+        os.system('csh')
+        inputs(version)
+
+    if user_input == "ksh":
+        os.system('ksh')
+        inputs(version)
+
+    if user_input == "dash":
+        os.system('dash')
+        inputs(version)
 
     if user_input[0:3] == "cd " or user_input[0:3] == "CD " or user_input[0:3] == "Cd " or user_input[0:3] == "cD ":
         with open('var/path.json') as l:
