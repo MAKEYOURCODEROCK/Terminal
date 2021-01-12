@@ -1,13 +1,10 @@
 # Terminal
 
-Version 1.1
+This file is just for the download
 
-Normal terminal file exlploler
+When you copy the bash code off the https://bluhorse.ca/blu.py and paste it in your REAL terminal it downloads the package contents
 
-A complete webServer with php, apache on http://localhost:1515
 
-The webserver works in all the folder
-
-Code Editor
+Check out the main.html file on https://bluhorse.ca/blu.py
   
   

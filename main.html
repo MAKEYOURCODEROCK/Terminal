@@ -1,0 +1,262 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blu.py</title>
+    <link rel="icon" href="https://bluhorse.ca/blu.png">
+    <style>
+        body{
+            background-color: rgb(47, 107, 168);
+        }
+
+        .top-bar{
+            height: 15%;
+            width: 100%;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            background-color: rgb(49, 113, 178);
+        }
+
+        .logo{
+            border-radius: 10px;
+            position: absolute;
+            left: 2%;
+            top: 25%;
+            cursor: pointer;
+        }
+
+        .logo:hover{
+            transition: 1s;
+            opacity: 50%;
+        }
+
+        .dropbtn{
+            background-color: dodgerblue;
+            border: none;
+            border-radius: 10px;
+            height: 50px;
+            width: 200px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .dropdown {
+            position: absolute;
+            right: 8%;
+            top: 25%;
+        }
+
+        .dropdown-content {
+            text-align: center;
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        .dropdown:hover .dropdown-content {
+            transition: 1s;
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            transition: 1s;
+            background-color: rgb(49, 113, 178);
+        }
+
+        .what{
+            text-align: center;
+            font-family: arial;
+            text-align: center;
+            padding-top: 20px;
+            color: white;
+        }
+
+        .git{
+            height: 75px;
+            width: 75px;
+            position: absolute;
+            right: 1%;
+            top: 15%;
+        }
+
+        .btns{
+            background-color: dodgerblue;
+            border: none;
+            border-radius: 10px;
+            height: 7.5%;
+            width: 15%;
+            cursor: pointer;
+            color: white;
+            position: absolute;
+            left: 42.5%;
+            top: 50%;
+        }
+
+        .btns:hover{
+            transition: 1.5s;
+            background-color: white;
+        }
+
+        .docs{
+            background-color: dodgerblue;
+            border: none;
+            border-radius: 10px;
+            height: 7.5%;
+            width: 15%;
+            cursor: pointer;
+            color: white;
+            position: absolute;
+            left: 42.5%;
+            top: 20%;
+        }
+
+        .docs:hover{
+            transition: 1.5s;
+            background-color: white;
+        }
+
+        body {
+            font-family: Arial;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .container{
+            position: absolute;
+            top: 20%;
+            width: 75%;
+            height: 25%;
+            border: 3px solid #f1f1f1;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            left: 12.5%;
+        }
+
+        .top {
+            padding: 10px;
+            background: #f1f1f1;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .content {
+            background-color: rgb(50, 50, 51);
+            padding: 10px;
+            text-align: center;
+            height: 80%;
+        }
+
+        .copied{
+            background-color: rgb(156, 245, 156);
+            color: green;
+            text-align: center;
+            border-radius: 10px;
+            border: solid green;
+            width: 25%;
+            height: 10%;
+            position: absolute;
+            left: 37.5%;
+            bottom: 5%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="https://github.com/MAKEYOURCODEROCK"><img class="git" src="git.png"></a>
+        <a href="https://bluhorse.ca"><img class="logo" src="https://bluhorse.ca/blu.png"></a>
+
+        <div class="dropdown">
+            <button class="dropbtn">My Projects ▼</button>
+            <div class="dropdown-content">
+                <a href="https://bluhorse.ca/onos-beta/">OnOs-3.0</a>
+            </div>
+          </div>
+
+          <h2 class="what">Terminal</h2>
+    </div>
+
+    <a href="#" download><button id="mac" class="btns">Mac Download</button></a>
+    <a href="#" download><button id="win" class="btns">Windows Download</button></a>
+    <a href="#" download><button id="linux" class="btns">Linux Download</button></a>
+
+    <!--<button class="docs">Docs</button>-->
+
+    <p style="display: none;" id="hi">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MAKEYOURCODEROCK/Terminal/download_sh/download.sh)"</p>
+
+    <div id="ch" style="cursor: copy;" onclick='copyToClipboard(document.getElementById("hi").innerHTML)' class="container">
+        <div class="top">
+          <span class="dot" style="background:#ED594A;"></span>
+            <span class="dot" style="background:#FDD800;"></span>
+            <span class="dot" style="background:#5AC05A;"></span>
+        </div>
+      
+        <div class="content">
+            <h3 style="cursor: text; color: white; text-align: center;">Download - Click To Copy</h3>
+            <code id="vall" data-lang="bash" class="language-bash" style="color: white;"><span style="color: rgba(34, 179, 34, 0.514);">$</span><span style="color: darkgreen;">/bin/bash</span> -c "$(<span style="color: rgb(175, 2, 175);">curl</span> -fsSL <span style="color: rgb(145, 94, 1);">https://raw.githubusercontent.com/MAKEYOURCODEROCK/Terminal/download_sh/download.sh</span>)"</code>
+          
+        </div>
+      </div>
+
+      <div id="copied" class="copied"><p>Copied</p></div>
+
+    <script>
+        document.getElementById("mac").style.display = "none";
+        document.getElementById("win").style.display = "none";
+        document.getElementById("linux").style.display = "none";
+
+        var detectedOS = "Unknown OS";
+
+        if (navigator.appVersion.indexOf("Mac") != -1){
+            detectedOS = "MacOS";
+            document.getElementById("mac").style.display = "block";
+        }
+
+        if (navigator.appVersion.indexOf("Win") != -1){
+            detectedOS = "Windows";
+            document.getElementById("win").style.display = "block";
+        }
+
+        if (navigator.appVersion.indexOf("Linux") != -1){
+            detectedOS = "Linux";
+            document.getElementById("linux").style.display = "block";
+        }
+
+        function copyToClipboard(text) {
+            var input = document.body.appendChild(document.createElement("input"));
+            input.value = text;
+            input.focus();
+            input.select();
+            document.execCommand('copy');
+            input.parentNode.removeChild(input);
+            document.getElementById("copied").style.display = "block";
+            setTimeout(function(){
+                document.getElementById("copied").style.display = "none";
+            }, 4500);
+        }
+    </script>
+</body>
+</html>
