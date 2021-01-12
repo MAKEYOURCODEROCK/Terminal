@@ -10,6 +10,3 @@ The webserver works in all the folder
 
 Code Editor
   
-  
-Terminal will gain windows support by tomorow.
-  
