@@ -101,6 +101,32 @@ def arguments(user_input):
         print("Keys-Are:")
         inputs(version)
 
+    if user_input[0:3] == "ssh":
+        os.system(user_input)
+        inputs(version)
+
+
+    if user_input[0:12] == "blu install " or user_input[0:12] == "BLU INSTALL " or user_input[0:12] == "blu install":
+        print("Pkg installer 0.0.1")
+        pkg = user_input[12:]
+
+        if pkg == "":
+            user_input = "info"
+            arguments(user_input)
+
+        if pkg == "brew" or pkg == "homebrew":
+            op = os.name
+            if op == "posix":
+                os.system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
+                os.system('export PATH=/opt/homebrew/bin:$PATH')
+                print("Brew Installed")
+            else:
+                print("Homebrew cannot download on your device")
+            inputs(version)
+
+        print("Intall Package Not Found")
+        inputs(version)
+
 
     if user_input == "sudo service apache2 start" or user_input == "sudo apache start" or user_input == "start webserver":
         print("Starting Web Server")
@@ -145,11 +171,6 @@ def arguments(user_input):
         os.remove(location['path'] + '/' + path) 
         inputs(version)
 
-    if user_input == "install brew":
-        os.system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
-        os.system('export PATH=/opt/homebrew/bin:$PATH')
-        print("Brew Installed")
-        inputs(version)
 
     if user_input[0:4] == "brew":
         os.system('export PATH=/opt/homebrew/bin:$PATH')
