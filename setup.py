@@ -7,7 +7,7 @@ username = getpass.getuser()
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-url = "https://raw.githubusercontent.com/MAKEYOURCODEROCK/Terminal/Download-1.1/main.py"
+url = "https://raw.githubusercontent.com/MAKEYOURCODEROCK/Terminal/Download-1.1/blu.py"
 
 wget.download(url, '/users/' + username)
 
