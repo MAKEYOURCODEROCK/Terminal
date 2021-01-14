@@ -2,7 +2,7 @@ import wget
 import getpass
 import ssl
 import os
-os.system('alias blu='python3 /users/$USER/blu.py'')
+os.system("alias blu='python3 /users/$USER/blu.py'")
 
 os.system('export SSL_CERT_DIR=/etc/ssl/certs')
 username = getpass.getuser()
