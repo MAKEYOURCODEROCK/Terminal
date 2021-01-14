@@ -90,7 +90,7 @@ def arguments(user_input):
     if user_input == "Quit" or user_input == "quit" or user_input == "QUIT" or user_input == "q" or user_input == "Q" or user_input == "exit" or user_input == "EXIT":
         data = {}
         data['path'] = "./"
-        writeToJSONFile('','var/path',data)
+        writeToJSONFile('','users/' + username + '/var/path',data)
         print("Bye!!")
         now = datetime.datetime.now()
         print("Blu Closed On:")
@@ -501,7 +501,7 @@ def arguments(user_input):
 
 
 def writeToJSONFile(path, fileName, data):
-    filePathNameWExt = './' + path + '/' + fileName + '.json'
+    filePathNameWExt = '' + path + '/' + fileName + '.json'
     with open(filePathNameWExt, 'w') as fp:
         json.dump(data, fp)
 
