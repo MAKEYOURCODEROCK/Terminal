@@ -76,6 +76,7 @@ def inputs(version):
 
 def arguments(user_input):
     location = './'
+    username = getpass.getuser()
 
     if user_input == "":
         inputs(version)
@@ -230,7 +231,7 @@ def arguments(user_input):
             inputs(version)
 
     if user_input[0:3] == "ls" or user_input[0:3] == "LS" or user_input[0:3] == "Ls" or user_input[0:3] == "lS":
-        with open('var/path.json') as z:
+        with open('/users/' + username + '/var/path.json') as z:
             location = json.load(z)
 
         ls = os.listdir(location['path'])
