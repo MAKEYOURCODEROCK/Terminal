@@ -209,15 +209,16 @@ def arguments(user_input):
         inputs(version)
 
     if user_input[0:3] == "cd " or user_input[0:3] == "CD " or user_input[0:3] == "Cd " or user_input[0:3] == "cD ":
-        with open('var/path.json') as l:
+        with open('/users/' + username + '/var/path.json') as l:
             low = json.load(l)
         pathcheck = os.path.exists(low['path'] + user_input[3:] + '/')
         if pathcheck == True:
-            with open('var/path.json') as v:
+            with open('/users/' + username + '/var/path.json') as v:
                 low = json.load(v)
             location = {}
             location['path'] = low['path'] + user_input[3:] + '/'
-            writeToJSONFile('','var/path', location)
+            writeToJSONFile('','/users/' + username +'/var/path', location)
+            #'/users/' + username + '/var/path.json'
             inputs(version)
         elif user_input != "cd ..":
             print("No Such File Or Directory")
